@@ -1,3 +1,35 @@
+Follow the instructions below to build and run this application by following the steps below:
+
+   1. This project assumes that the gradle, and spring boot setup is available along with the necessary JDK installed.
+   2. Run 'gradle -v' in the terminal command prompt to ensure that the setup is ready to use
+   3. Either clone the git repository running 'git clone https://github.com/mpdass/StoreDocuments.git' to a convenient work directory
+   4. Change directory to 'springboot-documents-store' and perform the following steps
+      a. You may be able to run the 'java -jar build/libs/springboot-documents-store-0.0.1-SNAPSHOT.jar' from this directory.
+         For some reason if this step fails, then you can build and run the newly generated '*.jar" file as below
+      b. gradle build
+      c. java -jar build/libs/springboot-documents-store-0.0.1-SNAPSHOT.jar
+   5. Run the following curl commands from an another terminal window
+      a. curl --header "Content-Type: plain/text" --request POST http://localhost:8080/storage/documents/ --data "Hello World"
+201 Created
+Content-Type: text/plain; charset=us-ascii Content-Length: 11
+FSVI4OPP4O7K4N9CC4J2
+
+      b. curl --request GET http://localhost:8080/storage/documents/FSVI4OPP4O7K4N9CC4J2
+200 OK
+Content-Length: 11
+Hello World
+
+      c. curl --header "Content-Type: plain/text" --request PUT http://localhost:8080/storage/documents/FSVI4OPP4O7K4N9CC4J2 --data "New World O
+rder"
+204 No Content
+
+      d. curl --request DELETE http://localhost:8080/storage/documents/FSVI4OPP4O7K4N9CC4J2
+204 No Content
+
+   6. In its current state only the 'plain/text' data are implemented and tested (for want of time).
+
+====================================================================================================================================================
+
 ASSIGNMENT
 ==========
 
